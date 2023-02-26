@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta author="Santiago Padilla">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Challenge</title>
+        <link rel="icon" href="Img/logo.png">
+        <style>
+            /* Proporciones generales de la pagina */
+            header {
+                width: 100%;
+                height: 10%;
+            }
+
+            body {
+                width: 100%;
+                height: 80%;
+                font-size: 14px;
+            }
+
+            footer {
+                width: 100%;
+                height: 10%;
+                background-color: #eee;
+                font-size: 0.8em;
+            }
+
+            /* Estilos para las imagennes */
+            .favi {
+                width: 2%;
+                height: 2%;
+            }
+
+            #Logo {
+                width: 2%;
+                height: 2%;
+                float: left;
+                padding-left: 5%;
+            }
+
+            .barranav {
+                margin-left: auto;
+            }
+
+            /* Estilos para los enlaces */
+            a {
+                text-decoration: none;
+                color: #333;
+                display: inline-block;
+            }
+
+            a:hover {
+                color: #666;
+            }
+
+            /* Estilos para el menú */
+            nav {
+                text-align: right;
+                background-color: #eee;
+                padding: 2%;
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+            }
+
+            nav a {
+                font-weight: bold;
+                padding: 1%;
+            }
+
+            .perfil {
+                width: 5%;
+                height: 5%;
+                padding-left: 2%;
+            }
+
+            #explicacion_juego {
+                padding: 20px;
+                background-color: #f1f1f1;
+            }
+
+            #juego {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+            .cell {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                margin: 10px;
+            }
+        </style>
+
+    <body>
+        <header>
+
+            <nav>
+                <img src="Img/logo.png" alt="" id="Logo">
+                <a href="juego.html" class="barranav">Daily challenge</a>
+                <a href="juego.html">Biblioteca</a>
+                <a href="juego.html">Tienda</a>
+                <a href="juego.html">Contactanos</a>
+                <a href="#"><img src="Img/perfil.png" class="perfil"></a>
+            </nav>
+
+        </header>
+        <div>
+            <div id="explicacion_juego">
+                <h2>Buscador de personajes</h2>
+                <form id="search-form">
+                    <label for="search-input">Escribe la primera letra del personaje:</label>
+                    <input type="text" id="search-input" name="search" />
+                    <button type="submit" id="buscar-btn">Buscar</button>
+                </form>
+            </div>
+
+            <div id="juego">
+                <div id="cell_foto_personaje" class="cell"></div>
+                <div id="cell2" class="cell"></div>
+                <div id="cell3" class="cell"></div>
+                <div id="cell4" class="cell"></div>
+                <div id="cell5" class="cell"></div>
+            </div>
+        </div>
+
+
+        <footer>
+            <p>Contactanos</p>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </footer>
+    </body>
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const juegoDiv = document.getElementById('juego');
+
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // previene el envío del formulario
+            juegoDiv.style.display = 'block'; // muestra el div con id "juego"
+        });
+
+        document.querySelector('#search-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var searchInput = document.querySelector('#search-input').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/search?q=' + searchInput);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    updateCells(response);
+                } else {
+                    console.log('Error: ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+        
+        function updateCells(response) {
+            var cells = document.querySelectorAll('.cell');
+            if (response.length > 0) {
+                var character = response[0];
+                cells[0].innerHTML = '<img src="' + character.image + '" />';
+                cells[1].textContent = 'Nombre: ' + character.name;
+                cells[2].textContent = 'Género: ' + character.gender;
+                cells[3].textContent = 'Magia: '  + character.magia;
+            }}; 
+    </script>
+
+</html>
