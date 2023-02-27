@@ -16,48 +16,48 @@
                 width: 100%;
                 height: 10%;
             }
-        
+
             body {
                 width: 100%;
                 height: 80%;
                 font-size: 14px;
             }
-        
+
             footer {
                 width: 100%;
                 height: 10%;
                 background-color: #eee;
                 font-size: 0.8em;
             }
-        
+
             /* Estilos para las imagennes */
             .favi {
                 width: 2%;
                 height: 2%;
             }
-        
+
             #Logo {
                 width: 12%;
                 height: 2%;
                 float: left;
                 padding-left: 5%;
             }
-        
+
             .barranav {
                 margin-left: auto;
             }
-        
+
             /* Estilos para los enlaces */
             a {
                 text-decoration: none;
                 color: #333;
                 display: inline-block;
             }
-        
+
             a:hover {
                 color: #666;
             }
-        
+
             /* Estilos para el menú */
             nav {
                 text-align: right;
@@ -67,60 +67,80 @@
                 display: flex;
                 align-items: center;
             }
-        
+
             nav a {
                 font-weight: bold;
                 padding: 1%;
             }
-        
+
             .perfil {
                 width: 5%;
                 height: 5%;
                 padding-left: 2%;
             }
-        
+            #Twitter,
+            #Contactanos_footer {
+                width: 10%;
+                height: 10%;
+                padding-left: 2%;
+            }
+
+
             #explicacion_juego {
                 padding: 20px;
                 background-color: #f1f1f1;
             }
-        
+
             #juego {
                 display: none;
                 justify-content: center;
                 align-items: center;
                 height: 100%;
             }
-        
+
             .cell {
                 display: inline-block;
-                width: 100px;
-                height: 100px;
+                width: 20%;
+                height: 70%;
                 border: 1px solid black;
-                margin: 10px;
+                background-size: contain
             }
-            #cell_foto_personaje{
-                background-image: url(Img/doby.png);
-            }
-            #cell_genero{
-                background-image: url(Img/male_ok.png);
-            }
-            #cell_raza{
-                background-image: url(Img/elfo_bad.png);
-            }
-            #cell_casa{
-                background-image: url(Img/student_bad.png);
-            }
-            
 
+            #cell_foto_personaje {
+                background-image: url("Img/doby.png");
+            }
+
+            #cell_genero {
+                background-image: url("Img/male_ok.png");
+            }
+
+            #cell_raza {
+                background-image: url("Img/elfo_bad.png");
+            }
+
+            #cell_casa {
+                background-image: url("Img/student_bad.png");
+            }
+
+            @media screen and (max-width: 768px) {
+                nav {
+                    display: none;
+                }
+
+                nav.show-menu {
+                    display: block;
+                }
+            }
         </style>
+
     <body>
         <header>
             <nav>
-                <img src="Img/logo2.png" alt="" id="Logo">
+                <a href="index.html"><img src="Img/logo2.png" alt="" id="Logo"></a>
                 <a href="juego.html" class="barranav">Challenge</a>
-                <a href="juego.html" >Biblioteca</a>
-                <a href="juego.html" >Tienda</a>
-                <a href="juego.html" >Contactanos</a>
+                <a href="wiki.html">Biblioteca</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="pagina_contacto.html">Contactanos</a>
                 <a href="#"><img src="Img/perfil.png" class="perfil"></a>
             </nav>
 
@@ -146,56 +166,25 @@
 
         <footer>
             <p>Contactanos</p>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
+                <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
+                <br>
+                <a href="#"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
+                <br>
+              
+            
         </footer>
     </body>
     <script>
+        const searchForm = document.getElementById('search-form');
+        const juegoDiv = document.getElementById('juego');
 
-        // TODO LO DEL SCRIPT ERA DE CUANDO PENSABA QUE SO HACIA FALTA 
-        // QUE FUNCIONARA EL JUEGO
-        // Y QUE FUERA CADA PARTE FUNCIONAL
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // previene el envío del formulario
+            juegoDiv.style.display = 'block'; // muestra el div con id "juego"
+        });
 
 
 
-
-        // const searchForm = document.getElementById('search-form');
-        // const juegoDiv = document.getElementById('juego');
-
-        // searchForm.addEventListener('submit', (event) => {
-        //     event.preventDefault(); // previene el envío del formulario
-        //     juegoDiv.style.display = 'block'; // muestra el div con id "juego"
-        // });
-
-        // document.querySelector('#search-form').addEventListener('submit', function (event) {
-        //     event.preventDefault();
-        //     var searchInput = document.querySelector('#search-input').value;
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.open('GET', '/search?q=' + searchInput);
-        //     xhr.onload = function () {
-        //         if (xhr.status === 200) {
-        //             var response = JSON.parse(xhr.responseText);
-        //             updateCells(response);
-        //         } else {
-        //             console.log('Error: ' + xhr.status);
-        //         }
-        //     };
-        //     xhr.send();
-        // });
-
-        // function updateCells(response) {
-        //     var cells = document.querySelectorAll('.cell');
-        //     if (response.length > 0) {
-        //         var character = response[0];
-        //         cells[1].innerHTML = '<img src="' + character.image + '" />';
-        //         cells[2].textContent = 'Nombre: ' + character.name;
-        //         cells[3].textContent = 'Género: ' + character.gender;
-        //         cells[4].textContent = 'Magia: ' + character.magia;
-        //     }
-        // }; 
     </script>
 
 </html>
