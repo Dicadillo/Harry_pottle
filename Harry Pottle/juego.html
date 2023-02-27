@@ -16,48 +16,48 @@
                 width: 100%;
                 height: 10%;
             }
-
+        
             body {
                 width: 100%;
                 height: 80%;
                 font-size: 14px;
             }
-
+        
             footer {
                 width: 100%;
                 height: 10%;
                 background-color: #eee;
                 font-size: 0.8em;
             }
-
+        
             /* Estilos para las imagennes */
             .favi {
                 width: 2%;
                 height: 2%;
             }
-
+        
             #Logo {
                 width: 2%;
                 height: 2%;
                 float: left;
                 padding-left: 5%;
             }
-
+        
             .barranav {
                 margin-left: auto;
             }
-
+        
             /* Estilos para los enlaces */
             a {
                 text-decoration: none;
                 color: #333;
                 display: inline-block;
             }
-
+        
             a:hover {
                 color: #666;
             }
-
+        
             /* Estilos para el menú */
             nav {
                 text-align: right;
@@ -67,38 +67,38 @@
                 display: flex;
                 align-items: center;
             }
-
+        
             nav a {
                 font-weight: bold;
                 padding: 1%;
             }
-
+        
             .perfil {
                 width: 5%;
                 height: 5%;
                 padding-left: 2%;
             }
-
+        
             #explicacion_juego {
                 padding: 20px;
                 background-color: #f1f1f1;
             }
-
+        
             #juego {
                 display: none;
                 justify-content: center;
                 align-items: center;
                 height: 100%;
             }
-
+        
             .cell {
+                display: inline-block;
                 width: 100px;
                 height: 100px;
                 border: 1px solid black;
                 margin: 10px;
             }
         </style>
-
     <body>
         <header>
 
@@ -165,7 +165,7 @@
             };
             xhr.send();
         });
-        
+
         function updateCells(response) {
             var cells = document.querySelectorAll('.cell');
             if (response.length > 0) {
@@ -173,8 +173,9 @@
                 cells[0].innerHTML = '<img src="' + character.image + '" />';
                 cells[1].textContent = 'Nombre: ' + character.name;
                 cells[2].textContent = 'Género: ' + character.gender;
-                cells[3].textContent = 'Magia: '  + character.magia;
-            }}; 
+                cells[3].textContent = 'Magia: ' + character.magia;
+            }
+        }; 
     </script>
 
 </html>
