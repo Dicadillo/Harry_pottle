@@ -2,189 +2,133 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta author="Santiago Padilla">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge</title>
+    <link rel="icon" href="Img/logo.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        body{
+            background-image: url(Img/grif.png);
+        }
+        #explicacion_juego {
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
 
-    <head>
-        <meta charset="UTF-8">
-        <meta author="Santiago Padilla">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Challenge</title>
-        <link rel="icon" href="Img/logo.png">
-        <style>
-            /* Proporciones generales de la pagina */
-            header {
-                width: 100%;
-                height: 10%;
-            }
+        #juego {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
 
-            body {
-                width: 100%;
-                height: 80%;
-                font-size: 14px;
-            }
+        .cell {
+            display: inline-block;
+            width: 20%;
+            height: 70%;
+            border: 1px solid black;
+            background-size: contain
+        }
 
-            footer {
-                width: 100%;
-                height: 10%;
-                background-color: #eee;
-                font-size: 0.8em;
-            }
+        #cell_foto_personaje {
+            background-image: url("Img/doby.png");
+        }
 
-            /* Estilos para las imagennes */
-            .favi {
-                width: 2%;
-                height: 2%;
-            }
+        #cell_genero {
+            background-image: url("Img/male_ok.png");
+        }
 
-            #Logo {
-                width: 12%;
-                height: 2%;
-                float: left;
-                padding-left: 5%;
-            }
+        #cell_raza {
+            background-image: url("Img/elfo_bad.png");
+        }
 
-            .barranav {
-                margin-left: auto;
-            }
+        #cell_casa {
+            background-image: url("Img/student_bad.png");
+        }
 
-            /* Estilos para los enlaces */
-            a {
-                text-decoration: none;
-                color: #333;
-                display: inline-block;
-            }
-
-            a:hover {
-                color: #666;
-            }
-
-            /* Estilos para el menú */
+        @media screen and (max-width: 768px) {
             nav {
-                text-align: right;
-                background-color: #eee;
-                padding: 2%;
-                margin-left: auto;
-                display: flex;
-                align-items: center;
-            }
-
-            nav a {
-                font-weight: bold;
-                padding: 1%;
-            }
-
-            .perfil {
-                width: 5%;
-                height: 5%;
-                padding-left: 2%;
-            }
-            #Twitter,
-            #Contactanos_footer {
-                width: 10%;
-                height: 10%;
-                padding-left: 2%;
-            }
-
-
-            #explicacion_juego {
-                padding: 20px;
-                background-color: #f1f1f1;
-            }
-
-            #juego {
                 display: none;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
             }
 
-            .cell {
-                display: inline-block;
-                width: 20%;
-                height: 70%;
-                border: 1px solid black;
-                background-size: contain
+            nav.show-menu {
+                display: block;
             }
+        }
+    </style>
+</head>
 
-            #cell_foto_personaje {
-                background-image: url("Img/doby.png");
-            }
+<header>
+    <nav>
+        <a href="index.html"><img src="Img/logo2.png" alt="" id="Logo"></a>
+        <a href="juego.html" class="barranav">Challenge</a>
+        <a href="wiki.html">Biblioteca</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="pagina_contacto.html">Contactanos</a>
+        <a href="#"><img src="Img/perfil.png" class="perfil"></a>
+    </nav>
 
-            #cell_genero {
-                background-image: url("Img/male_ok.png");
-            }
+</header>
 
-            #cell_raza {
-                background-image: url("Img/elfo_bad.png");
-            }
+<body>
 
-            #cell_casa {
-                background-image: url("Img/student_bad.png");
-            }
-
-            @media screen and (max-width: 768px) {
-                nav {
-                    display: none;
-                }
-
-                nav.show-menu {
-                    display: block;
-                }
-            }
-        </style>
-
-    <body>
-        <header>
-            <nav>
-                <a href="index.html"><img src="Img/logo2.png" alt="" id="Logo"></a>
-                <a href="juego.html" class="barranav">Challenge</a>
-                <a href="wiki.html">Biblioteca</a>
-                <a href="tienda.html">Tienda</a>
-                <a href="pagina_contacto.html">Contactanos</a>
-                <a href="#"><img src="Img/perfil.png" class="perfil"></a>
-            </nav>
-
-        </header>
-        <div>
-            <div id="explicacion_juego">
-                <h2>Buscador de personajes</h2>
-                <form id="search-form">
-                    <label for="search-input">Escribe la primera letra del personaje:</label>
-                    <input type="text" id="search-input" name="search" />
-                    <button type="submit" id="buscar-btn">Buscar</button>
-                </form>
-            </div>
-
-            <div id="juego">
-                <div id="cell_foto_personaje" class="cell"></div>
-                <div id="cell_genero" class="cell"></div>
-                <div id="cell_raza" class="cell"></div>
-                <div id="cell_casa" class="cell"></div>
-            </div>
+    <div>
+        <div id="explicacion_juego">
+            <h2>Buscador de personajes</h2>
+            <form id="search-form">
+                <label for="search-input">Escribe la primera letra del personaje:</label>
+                <input type="text" id="search-input" name="search" />
+                <button type="submit" id="buscar-btn">Buscar</button>
+                <button type="button" id="simular-btn">Simular Juego</button>
+            </form>
         </div>
 
+        <div id="juego">
+            <div id="cell_foto_personaje" class="cell"></div>
+            <div id="cell_genero" class="cell"></div>
+            <div id="cell_raza" class="cell"></div>
+            <div id="cell_casa" class="cell"></div>
+        </div>
+    </div>
 
-        <footer>
-            <p>Contactanos</p>
-                <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
-                <br>
-                <a href="#"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
-                <br>
-              
-            
-        </footer>
-    </body>
-    <script>
-        const searchForm = document.getElementById('search-form');
+
+    <footer>
+        <p>Contactanos</p>
+        <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
+        <br>
+        <a href="#"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
+        <br>
+    </footer>
+</body>
+<script>
+    const searchForm = document.getElementById('search-form');
+    const juegoDiv = document.getElementById('juego');
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // previene el envío del formulario
+        juegoDiv.style.display = 'block'; // muestra el div con id "juego"
+    });
+    //simulacion del juego
+    const simularBtn = document.getElementById('simular-btn');
+    simularBtn.addEventListener('click', () => {
         const juegoDiv = document.getElementById('juego');
+        juegoDiv.style.display = 'flex';
+        // Agregar cuatro filas de celdas al juego
+        for (let i = 0; i < 4; i++) {
+            const fila = document.createElement('div');
+            fila.classList.add('fila');
 
-        searchForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // previene el envío del formulario
-            juegoDiv.style.display = 'block'; // muestra el div con id "juego"
-        });
+            for (let j = 0; j < 5; j++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                fila.appendChild(cell);
+            }
 
-
-
-    </script>
+            juegoDiv.appendChild(fila);
+        }
+    });
+</script>
 
 </html>

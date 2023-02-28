@@ -1,0 +1,76 @@
+  /* Proporciones generales de la pagina */
+  header {
+      width: 100%;
+      height: 10%;
+  }
+
+  body {
+      width: 100%;
+      height: 80%;
+      font-size: 14px;
+  }
+
+  footer {
+      width: 100% ;
+      height: 10%;
+      background-color: #ccd2dd;
+      font-size: 0.8em;
+  }
+
+  /* Estilos para las imagennes */
+  .favi {
+      width: 2%;
+      height: 2%;
+  }
+
+  #Logo {
+      width: 12%;
+      height: 2%;
+      float: left;
+      padding-left: 5%;
+  }
+
+  .barranav {
+      margin-left: auto;
+  }
+
+  
+
+  /* Estilos para los enlaces */
+  a {
+      text-decoration: none;
+      color: #333;
+      display: inline-block;
+  }
+
+ a:hover {
+      color: #ffd700;
+  }
+
+  /* Estilos para el menú */
+  nav {
+      text-align: right;
+      background-color: #ccd2dd;
+      padding: 2%;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+  }
+
+  nav a {
+      font-weight: bold;
+      padding: 1%;
+  }
+
+  .perfil {
+      width: 5%;
+      height: 5%;
+      padding-left: 2%;
+      padding-right: 0%;
+  }
+  #Twitter,
+  #Contactanos_footer {
+      width: 10%;
+      height: 10%;
+      padding-left: 2%;
+  }
