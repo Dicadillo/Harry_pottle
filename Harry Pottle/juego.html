@@ -10,9 +10,10 @@
     <link rel="icon" href="Img/logo.png">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
-        body{
+        body {
             background-image: url(Img/grif.png);
         }
+
         #explicacion_juego {
             padding: 20px;
             background-color: #f1f1f1;
@@ -23,35 +24,84 @@
             justify-content: center;
             align-items: center;
             height: 100%;
+            background-color: #ccd2dd;
+        }
+
+        #juego2 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: #ccd2dd;
         }
 
         .cell {
+            background-size: cover;
             display: inline-block;
-            width: 20%;
-            height: 70%;
+            width: 60px;
+            height: 60px;
             border: 1px solid black;
-            background-size: contain
+            background-size: contain;
         }
 
+        /* doby */
         #cell_foto_personaje {
             background-image: url("Img/doby.png");
         }
-
         #cell_genero {
-            background-image: url("Img/male_ok.png");
+            background-image: url("Img/male_bad.png");
         }
-
         #cell_raza {
             background-image: url("Img/elfo_bad.png");
         }
-
         #cell_casa {
             background-image: url("Img/student_bad.png");
         }
+        /* voldemort */
+        #cell_foto_personaje2 {
+            background-image: url("Img/voldemmort.png");
+        }
+        #cell_genero2 {
+            background-image: url("Img/male_bad.png");
+        }
+        #cell_raza2 {
+            background-image: url("Img/horx_bad.png");
+        }
+        #cell_casa2 {
+            background-image: url("Img/slyce.png");
+        }
+        /* harry */
+        #cell_foto_personaje3 {
+            background-image: url("Img/harry.png");
+        }
+        #cell_genero3 {
+            background-image: url("Img/male_bad.png");
+        }
+        #cell_raza3 {
+            background-image: url("Img/horx_bad.png");
+        }
+        #cell_casa3 {
+            background-image: url("Img/grif.png");
+        }
+        /* hermion */
+        #cell_foto_personaje4 {
+            background-image: url("Img/hermion.png");
+        }
+        #cell_genero4 {
+            background-image: url("Img/female_ok.png");
+        }
+        #cell_raza4 {
+            background-image: url("Img/human_ok.png");
+        }
+        #cell_casa4 {
+            background-image: url("Img/grif.png");
+        }
+
 
         @media screen and (max-width: 768px) {
             nav {
                 display: none;
+                
             }
 
             nav.show-menu {
@@ -61,19 +111,18 @@
     </style>
 </head>
 
-<header>
-    <nav>
-        <a href="index.html"><img src="Img/logo2.png" alt="" id="Logo"></a>
-        <a href="juego.html" class="barranav">Challenge</a>
-        <a href="wiki.html">Biblioteca</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="pagina_contacto.html">Contactanos</a>
-        <a href="#"><img src="Img/perfil.png" class="perfil"></a>
-    </nav>
-
-</header>
-
 <body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="Img/logo2.png" alt="" id="Logo"></a>
+            <a href="juego.html" class="barranav">Challenge</a>
+            <a href="wiki.html">Biblioteca</a>
+            <a href="tienda.html">Tienda</a>
+            <a href="pagina_contacto.html">Contactanos</a>
+            <a href="#"><img src="Img/perfil.png" class="perfil"></a>
+        </nav>
+
+    </header>
 
     <div>
         <div id="explicacion_juego">
@@ -92,9 +141,40 @@
             <div id="cell_raza" class="cell"></div>
             <div id="cell_casa" class="cell"></div>
         </div>
+        <div id="juego2">
+            <div>
+                <div id="cell_foto_personaje" class="cell"></div>
+                <div id="cell_genero" class="cell"></div>
+                <div id="cell_raza" class="cell"></div>
+                <div id="cell_casa" class="cell"></div>
+            </div>
+            <div>
+                <div id="cell_foto_personaje2" class="cell"></div>
+                <div id="cell_genero2" class="cell"></div>
+                <div id="cell_raza2" class="cell"></div>
+                <div id="cell_casa2" class="cell"></div>
+            </div>
+            <div>
+                <div id="cell_foto_personaje3" class="cell"></div>
+                <div id="cell_genero3" class="cell"></div>
+                <div id="cell_raza3" class="cell"></div>
+                <div id="cell_casa3" class="cell"></div>
+            </div>
+            <div>
+                <div id="cell_foto_personaje4" class="cell"></div>
+                <div id="cell_genero4" class="cell"></div>
+                <div id="cell_raza4" class="cell"></div>
+                <div id="cell_casa4" class="cell"></div>
+            </div>
+
+            <div>
+                <h3>
+                    !has acertado!
+                </h3>
+            </div>
+        </div>
     </div>
-
-
+    </div>
     <footer>
         <p>Contactanos</p>
         <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
@@ -108,26 +188,18 @@
     const juegoDiv = document.getElementById('juego');
     searchForm.addEventListener('submit', (event) => {
         event.preventDefault(); // previene el envío del formulario
-        juegoDiv.style.display = 'block'; // muestra el div con id "juego"
+        juegoDiv.style.display = 'flex';
+
     });
     //simulacion del juego
     const simularBtn = document.getElementById('simular-btn');
     simularBtn.addEventListener('click', () => {
-        const juegoDiv = document.getElementById('juego');
+        const juegoDiv = document.getElementById('juego2');
         juegoDiv.style.display = 'flex';
-        // Agregar cuatro filas de celdas al juego
-        for (let i = 0; i < 4; i++) {
-            const fila = document.createElement('div');
-            fila.classList.add('fila');
+        juegoDiv.style.flexDirection ="column";
+        
 
-            for (let j = 0; j < 5; j++) {
-                const cell = document.createElement('div');
-                cell.classList.add('cell');
-                fila.appendChild(cell);
-            }
 
-            juegoDiv.appendChild(fila);
-        }
     });
 </script>
 
