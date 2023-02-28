@@ -6,11 +6,49 @@
     <meta author="Santiago Padilla">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge</title>
+    <title>Perfil</title>
     <link rel="icon" href="Img/logo.png">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
-        
+        body{
+            background-image: url(Img/bgperfil.png);
+        }
+        #contenido {
+            padding: 20px;
+            height: 100%;
+            background-color: #ccd2dd;
+            margin: 1%;
+            padding: 10px;
+            border-radius: 15px 15px 15px 15px;
+            align-items: center;
+            text-align: center;
+        }
+        form {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        label {
+            padding: 1%;
+            padding-top: 5px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 20px;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -33,27 +71,24 @@
             <form action="#" method="POST">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" value="Juan Perez"><br>
-    
+                <br>
                 <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" value="juan.perez@example.com"><br>
-    
+                <input type="email" id="email" name="email" value="juanelmago@magico.com"><br>
+                <br>
                 <label for="phone">Teléfono:</label>
                 <input type="tel" id="phone" name="phone" value="+34 912345678"><br>
-    
+                <br>
                 <label for="message">Descripción:</label>
-                <textarea id="message" name="message">Soy un apasionado de la tecnología y me encanta programar.</textarea><br>
-    
+                <textarea id="message" name="message">Soy un mago tenebroso jejejeje.</textarea><br>
+                <br>
                 <button type="submit">Guardar cambios</button>
             </form>
         </div>
     </div>
-
-
     <footer>
         <p>Contactanos</p>
-        <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
-        <a href="#"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
-        <br>
+        <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>  
+        <a href="pagina_contacto.html"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
     </footer>
 </body>
 

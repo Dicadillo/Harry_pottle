@@ -22,23 +22,19 @@
             align-items: center;
             text-align: center;
         }
-
         /* Estilos CSS para el formulario */
         form {
             margin: 20px;
             font-family: Arial, sans-serif;
             font-size: 16px;
         }
-
         label {
-            display: block;
+            padding: 1%;
+            padding-top: 5px;
             margin-bottom: 10px;
             font-weight: bold;
         }
-
-        input[type=text],
         textarea {
-            display: block;
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -48,20 +44,6 @@
             font-family: inherit;
             font-size: inherit;
         }
-
-        textarea {
-            height: 150px;
-        }
-
-        input {       
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
         input[type=submit]:hover {
             background-color: #45a049;
         }
@@ -86,32 +68,29 @@
         <form action="#" method="POST">
             <label for="name" style="text-align: right;">Nombre:</label>
             <input type="text" id="name" name="name" required><br>
-            
+            <br>
             <label for="email" style="text-align: right;">Correo electrónico:</label>
             <input type="email" id="email" name="email" required><br>
-    
+            <br>
             <label for="phone" style="text-align: right;">Teléfono:</label>
             <input type="tel" id="phone" name="phone"><br>
-    
+            <br>
             <label for="message">Mensaje:</label>
             <textarea id="message" name="message" required></textarea><br>
-    
+            <br>
             <input type="checkbox" id="terms" name="terms" required>
             <label for="terms">No soy un robot</label><br>
-            
+            <br>
             <input type="checkbox" id="terms" name="terms" required>
             <label for="terms">Acepto las condiciones de uso</label><br>
     
             <button type="submit">Enviar</button>
         </form>
     </div>
-
-
     <footer>
         <p>Contactanos</p>
-        <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
-        <a href="#"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
-        <br>
+        <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>  
+        <a href="pagina_contacto.html"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
     </footer>
 </body>
 
