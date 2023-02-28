@@ -9,6 +9,9 @@
     <title>Wiki</title>
     <link rel="icon" href="Img/logo.png">
     <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     <style>
         body {
             background-image: url(Img/reven.png);
@@ -23,12 +26,19 @@
             background-color: #ccd2dd;
         }
 
+        #contenido {
+            align-items: center;
+            max-width: fit-content;
+            height: 60%;
+        }
+
         #titulo {
             align-items: center;
             text-align: center;
             margin-left: 40%;
             margin-right: 40%;
             background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
         }
 
         #Buscador {
@@ -38,32 +48,78 @@
             margin-left: 10%;
             margin-right: 10%;
             padding-bottom: 5%;
+            margin-bottom: 2%;
             background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
         }
 
         #contenido_inicial {
-            display: grid;
-            grid-template-rows: repeat(2, 1fr);
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
+
+            display: flex;
+            flex-direction: row;
             margin: 20px;
+            max-height: 60%;
+            max-width: 80%;
+        }
+
+        .container {
+            display: flex;
+            /* para hacer que los elementos se distribuyan en una fila */
+            flex-wrap: wrap;
+            /* para que los elementos se envuelvan si no caben en una línea */
+            max-height: 60%;
+            /* para limitar la altura máxima del contenedor */
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 2%;
+            background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
+        }
+
+        .person1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendario {
+            flex-basis: 50%;
+            /* para hacer que ambos elementos ocupen el 50% de la anchura */
+            max-height: 50%;
+            /* para limitar la altura máxima de cada elemento */
+        }
+
+        .person {
+            display: flex;
+            /* para hacer que ambos elementos ocupen el 50% de la anchura */
+            /* para limitar la altura máxima de cada elemento */
+
+        }
+        .oculto{
+            display: none;
         }
 
         .personaje {
             display: flex;
-            width: 20%;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            background-color: #fff;
-            border: 1px solid #ccc;
             padding: 20px;
         }
 
         .personaje img {
-            width: 100%;
-            height: 100%;
-            height: auto;
+            width: 150px;
+            height: 150px;
+        }
+
+        .calendar-container {
+            position: relative;
+            width: auto;
+        }
+
+        #calendar {
+            background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
+            padding: 2%;
         }
 
         #Informacion {
@@ -72,6 +128,7 @@
             align-items: center;
             height: 100%;
             background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
         }
     </style>
 </head>
@@ -88,51 +145,109 @@
         </nav>
 
     </header>
-    <tbody class="titulo">
-        <hr>
-        <h1 id="titulo"> Wizards Wiki</h1>
-        <hr>
-    </tbody>
-    <div>
-        <div id="Buscador">
-            <h2>Buscador de personajes</h2>
-            <form id="search-form">
-                <label for="search-input">Escribe la primera letra del personaje:</label>
-                <input type="text" id="search-input" name="search" />
-                <button type="submit" id="buscar-btn">Buscar</button>
-            </form>
+    <div id="contenido">
+        <tbody class="titulo">
+            <hr>
+            <h1 id="titulo"> Wizards Wiki</h1>
+            <hr>
+        </tbody>
+        <div>
+            <div id="Buscador">
+                <h2>Buscador de personajes</h2>
+                <form id="search-form">
+                    <label for="search-input">Escribe la primera letra del personaje:</label>
+                    <input type="text" id="search-input" name="search" />
+                    <button type="submit" id="buscar-btn">Buscar</button>
+                </form>
+            </div>
         </div>
-    </div>
-    <div id="contenido_inicial">
-        <div class="personaje">
-            <img src="Img/hermion.png" alt="Hermion Granger foto">
-            <p>Hermion Granger </p>
-        </div>
-        <div class="personaje">
-            <img src="Img/harry.png" alt="Harry Potter foto">
-            <p>Harry Potter</p>
-        </div>
-        <div class="personaje">
-            <img src="Img/doby.png" alt="doby foto">
-            <p>doby</p>
-        </div>
-        <div class="personaje">
-            <img src="Img/voldemmort.png" alt="Voldemmort foto">
-            <p>Voldemmort</p>
-        </div>
-        <div id="calendario">
-            <!-- Aquí puedes agregar tu calendario, ya sea embebido o usando una biblioteca de JavaScript -->
-        </div>
-    </div>
-    <div id="#Informacion">
+        <div class="container">
+            <div class="person1" id="inicial">
+                <div class="person">
+                    <div class="personaje">
+                        <a href="#">
+                            <img src="Img/hermion.png" alt="Hermion Granger foto">
+                        </a>
+                    </div>
+                    <div class="personaje">
+                        <a href="#">
+                            <img src="Img/harry.png" alt="Harry Potter foto">
+                        </a>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="personaje">
+                        <a href="#">
+                            <img src="Img/doby.png" alt="doby foto">
+                        </a>
+                    </div>
+                    <div class="personaje">
+                        <a href="#">
+                            <img src="Img/voldemmort.png" alt="Voldemmort foto">
+                        </a>
+                    </div>
 
+                </div>
+            </div>
+            <div class="#oculto">
+                <h3>Hary Potter</h3>
+
+                <h5> Grifindor</h5>
+                <p>
+
+                    texto de descripcion
+                </p>
+
+            </div>
+            <div class="calendario">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <div class="calendar-container">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
     </div>
-    <footer>
-        <p>Contactanos</p>
-        <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"></a>
-        <a href="#"><img src="Img/logo.png" alt="" id="Contactanos_footer"></a>
-        <br>
-    </footer>
+
 </body>
+<footer>
+    <p>Contactanos <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"> </a><a href="#"><img src="Img/logo.png"
+                alt="" id="Contactanos_footer"></a> </p>
+
+
+    <br>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            // opciones del calendario, como eventos, vista inicial, etc.
+            events: [
+                // aquí puedes agregar los eventos que quieres mostrar en el calendario
+            ]
+        });
+    });
+    const boton = document.getElementById("boton");
+
+    // agregar evento de click al botón
+    boton.addEventListener("click", function () {
+        // obtener el contenido inicial y la información
+        const contenidoInicial = document.querySelector("#contenido-inicial");
+        const contenido = document.querySelector("#contenido");
+        // cambiar la propiedad display de los elementos
+        contenidoInicial.style.display = "none";
+        Informacion.style.display = "flex";
+    });
+</script>
+
+
 
 </html>
