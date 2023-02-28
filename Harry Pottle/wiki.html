@@ -42,6 +42,7 @@
         }
 
         #Buscador {
+            
             align-items: center;
             text-align: center;
             padding-top: 1%;
@@ -53,22 +54,27 @@
             border-radius: 15px 15px 15px 15px;
         }
 
-        #contenido_inicial {
-
+        #contenedor-inicial {
             display: flex;
-            flex-direction: row;
-            margin: 20px;
-            max-height: 60%;
-            max-width: 80%;
+        }
+
+        #contenedor-personaje {
+            display: none;
+            margin-left: 2%;
+            max-width: 30%;
+        }
+        #Descripción {
+            align-items: center;
+            background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
         }
 
         .container {
             display: flex;
-            /* para hacer que los elementos se distribuyan en una fila */
+            flex-direction: row;
+            justify-content: space-around;
             flex-wrap: wrap;
-            /* para que los elementos se envuelvan si no caben en una línea */
             max-height: 60%;
-            /* para limitar la altura máxima del contenedor */
             margin-left: 10%;
             margin-right: 10%;
             margin-bottom: 2%;
@@ -82,21 +88,16 @@
         }
 
         .calendario {
+
             flex-basis: 50%;
-            /* para hacer que ambos elementos ocupen el 50% de la anchura */
             max-height: 50%;
-            /* para limitar la altura máxima de cada elemento */
         }
 
         .person {
             display: flex;
-            /* para hacer que ambos elementos ocupen el 50% de la anchura */
-            /* para limitar la altura máxima de cada elemento */
+        }
 
-        }
-        .oculto{
-            display: none;
-        }
+
 
         .personaje {
             display: flex;
@@ -106,7 +107,7 @@
             padding: 20px;
         }
 
-        .personaje img {
+        .personaje img, .img_h {
             width: 150px;
             height: 150px;
         }
@@ -121,15 +122,7 @@
             border-radius: 15px 15px 15px 15px;
             padding: 2%;
         }
-
-        #Informacion {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            background-color: #ccd2dd;
-            border-radius: 15px 15px 15px 15px;
-        }
+        
     </style>
 </head>
 
@@ -157,12 +150,12 @@
                 <form id="search-form">
                     <label for="search-input">Escribe la primera letra del personaje:</label>
                     <input type="text" id="search-input" name="search" />
-                    <button type="submit" id="buscar-btn">Buscar</button>
+                    <button type="button" id="boton">Buscar</button>
                 </form>
             </div>
         </div>
         <div class="container">
-            <div class="person1" id="inicial">
+            <div class="person1" id="contenedor-inicial">
                 <div class="person">
                     <div class="personaje">
                         <a href="#">
@@ -189,16 +182,18 @@
 
                 </div>
             </div>
-            <div class="#oculto">
-                <h3>Hary Potter</h3>
 
-                <h5> Grifindor</h5>
-                <p>
+            <div id="contenedor-personaje">
+                <div id="Descripción">
+                    <h2>Harry Potter</h2>
 
-                    texto de descripcion
-                </p>
-
+                    <img src="Img/harry.png" class="img_h">
+                    <div>
+                        <p class="descrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>
+                    </div>
+                </div>
             </div>
+
             <div class="calendario">
                 <div class="container">
                     <div class="row">
@@ -212,15 +207,13 @@
             </div>
 
         </div>
-        
+
     </div>
 
 </body>
 <footer>
     <p>Contactanos <a href="#"><img src="Img/twiter.png" alt="" id="Twitter"> </a><a href="#"><img src="Img/logo.png"
                 alt="" id="Contactanos_footer"></a> </p>
-
-
     <br>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -236,18 +229,13 @@
         });
     });
     const boton = document.getElementById("boton");
+    boton.addEventListener("click", mostrarPersonaje);
+    function mostrarPersonaje() {
+        var contenedorInicial = document.querySelector('#contenedor-inicial');
+        var contenedorPersonaje = document.querySelector('#contenedor-personaje');
 
-    // agregar evento de click al botón
-    boton.addEventListener("click", function () {
-        // obtener el contenido inicial y la información
-        const contenidoInicial = document.querySelector("#contenido-inicial");
-        const contenido = document.querySelector("#contenido");
-        // cambiar la propiedad display de los elementos
-        contenidoInicial.style.display = "none";
-        Informacion.style.display = "flex";
-    });
+        contenedorInicial.style.display = 'none';
+        contenedorPersonaje.style.display = 'flex';
+    }
 </script>
-
-
-
 </html>

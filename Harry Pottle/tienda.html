@@ -9,11 +9,37 @@
     <title>Challenge</title>
     <link rel="icon" href="Img/logo.png">
     <link rel="stylesheet" href="styles/styles.css">
-<style>
-    body{
+    <style>
+        body {
             background-image: url(Img/slyce.png);
         }
-</style>
+
+        div {
+            border-style: solid;
+            border-color: black;
+        }
+
+        #contenido {
+            background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
+            padding: 2%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            align-items: center;
+            text-align: center;
+        }
+        .tienda{
+            background-color: red;
+        }
+        .tienda2{
+            background-color: green;
+        }
+        .escaparate {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    </style>
 </head>
 
 <header>
@@ -30,8 +56,64 @@
 
 <body>
 
-    <div>
-        
+    <div id="contenido">
+
+        <div>
+            <div id="Buscador">
+                <h2>Buscador de personajes</h2>
+                <form id="search-form">
+                    <label for="search-input">Buscar:</label>
+                    <input type="text" id="search-input" name="search" />
+                    <button type="button" id="boton">Buscar</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+        <div>
+            <div class="tienda">
+                <div class="escaparate">
+                    <div><img>
+                        <div>
+                            <p>Descripción</p>
+                        </div>
+                    </div>
+                    <div><img>
+                        <div>
+                            <p>Descripción</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="tienda2">
+                    <div>
+                        <div><img>
+                            <div>
+                                <p>Descripción</p>
+                            </div>
+                        </div>
+                        <div><img>
+                            <div>
+                                <p>Descripción</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div><img>
+                            <div>
+                                <p>Descripción</p>
+                            </div>
+                        </div>
+                        <div><img>
+                            <div>
+                                <p>Descripción</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
