@@ -6,13 +6,65 @@
     <meta author="Santiago Padilla">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge</title>
+    <title>Contactanos</title>
     <link rel="icon" href="Img/logo.png">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
-        body{
-                background-image: url(Img/haff.png);
-            }
+        body {
+            background-image: url(Img/haff.png);
+        }
+        #contenido {
+            background-color: #ccd2dd;
+            border-radius: 15px 15px 15px 15px;
+            padding: 2%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Estilos CSS para el formulario */
+        form {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type=text],
+        textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input {       
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -23,15 +75,35 @@
         <a href="wiki.html">Biblioteca</a>
         <a href="tienda.html">Tienda</a>
         <a href="pagina_contacto.html">Contactanos</a>
-        <a href="#"><img src="Img/perfil.png" class="perfil"></a>
+        <a href="perfil.html"><img src="Img/perfil.png" class="perfil"></a>
     </nav>
-
 </header>
 
 <body>
 
-    <div>
-        
+    <div id="contenido">
+        <h1>Contactanos</h1>
+        <form action="#" method="POST">
+            <label for="name" style="text-align: right;">Nombre:</label>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label for="email" style="text-align: right;">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required><br>
+    
+            <label for="phone" style="text-align: right;">Teléfono:</label>
+            <input type="tel" id="phone" name="phone"><br>
+    
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea><br>
+    
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">No soy un robot</label><br>
+            
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">Acepto las condiciones de uso</label><br>
+    
+            <button type="submit">Enviar</button>
+        </form>
     </div>
 
 

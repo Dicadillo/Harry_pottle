@@ -6,17 +6,12 @@
     <meta author="Santiago Padilla">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge</title>
+    <title>Tienda</title>
     <link rel="icon" href="Img/logo.png">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
         body {
             background-image: url(Img/slyce.png);
-        }
-
-        div {
-            border-style: solid;
-            border-color: black;
         }
 
         #contenido {
@@ -28,16 +23,67 @@
             align-items: center;
             text-align: center;
         }
-        .tienda{
-            background-color: red;
+
+        .tienda {
+            height: 30%;
         }
-        .tienda2{
-            background-color: green;
+
+        .tienda2 {
+            display: flex;
+            flex-direction: row;
         }
+
         .escaparate {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+        }
+
+        .imageniz {
+            width: 30%;
+            justify-content: center
+        }
+
+        .imagender {
+            display: flex;
+            flex-direction: row;
+            width: 70%;
+            justify-content: space-around;
+        }
+
+        .escaparate2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            justify-content: space-around;
+        }
+
+        .escaparate3 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            justify-content: space-around;
+        }
+
+
+        .imgcorta {
+            border: 1px solid black;
+            border-radius: 5px 5px 5px 5px;
+            width: 300px;
+            height: 150px;
+        }
+        .imgmedia {
+            border: 1px solid black;
+            border-radius: 5px 5px 5px 5px;
+            width: 400px;
+            height: 250px;
+        }
+
+        .imglarga {
+            border: 1px solid black;
+            border-radius: 5px 5px 5px 5px;
+            width: 200px;
+            height: 350px;
         }
     </style>
 </head>
@@ -49,9 +95,8 @@
         <a href="wiki.html">Biblioteca</a>
         <a href="tienda.html">Tienda</a>
         <a href="pagina_contacto.html">Contactanos</a>
-        <a href="#"><img src="Img/perfil.png" class="perfil"></a>
+        <a href="perfil.html"><img src="Img/perfil.png" class="perfil"></a>
     </nav>
-
 </header>
 
 <body>
@@ -72,41 +117,50 @@
         <div>
             <div class="tienda">
                 <div class="escaparate">
-                    <div><img>
+                    <div><img src="Img/escoba.png" class="imgmedia">
                         <div>
-                            <p>Descripción</p>
+                            <p>Escoba de fenix para los de primer año</p>
                         </div>
                     </div>
-                    <div><img>
+                    <div><img src="Img/libro.png" class="imgmedia">
                         <div>
-                            <p>Descripción</p>
+                            <p>Libro de defensa contra las artes oscuras cuarto año</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div>
                 <div class="tienda2">
-                    <div>
-                        <div><img>
+                    <div class="imageniz">
+                        <div><img src="Img/unifor.png" class="imglarga">
                             <div>
-                                <p>Descripción</p>
-                            </div>
-                        </div>
-                        <div><img>
-                            <div>
-                                <p>Descripción</p>
+                                <p>Uniforme de primer año Griffindor para Hogwarts</p>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div><img>
-                            <div>
-                                <p>Descripción</p>
+                    <div class="imagender">
+                        <div class="escaparate2">
+                            <div><img src="Img/wand_img.png" class="imgcorta">
+                                <div>
+                                    <p>Varita con nucleo de cola de unicornio</p>
+                                </div>
+                            </div>
+                            <div><img src="Img/wand2_img.png" class="imgcorta">
+                                <div>
+                                    <p>Varita con nucleo de pluma de fenix</p>
+                                </div>
                             </div>
                         </div>
-                        <div><img>
-                            <div>
-                                <p>Descripción</p>
+                        <div class="escaparate3">
+                            <div><img src="Img/wand3_img.png" class="imgcorta">
+                                <div>
+                                    <p>Varita con nucleo de corazon de dragon</p>
+                                </div>
+                            </div>
+                            <div><img src="Img/wand4_img.png" class="imgcorta">
+                                <div>
+                                    <p>Varita con nucleo de pelo de hada</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,7 +169,6 @@
         </div>
 
     </div>
-
 
     <footer>
         <p>Contactanos</p>
